@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="356978d9-b806-4e50-9af5-a81fe4a84415" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="sx420zm9" />
+  </component>
+  <component name="ProjectId" id="1hZcDwQvjXPeye7hxKAkimlG9Ih" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/api/src" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/api/src" />
+      <recent name="$PROJECT_DIR$/packages" />
+      <recent name="$PROJECT_DIR$/packages/api/src/base" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="356978d9-b806-4e50-9af5-a81fe4a84415" name="Default Changelist" comment="" />
+      <created>1600221938552</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600221938552</updated>
+      <workItem from="1600221939653" duration="11203000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="453" y="251" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600252588282">
+      <screen x="0" y="23" width="1680" height="978" />
+    </state>
+    <state x="453" y="251" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.978@0.23.1680.978" timestamp="1600252588282" />
+    <state x="211" y="156" width="1163" height="672" key="DiffContextDialog" timestamp="1600235028140">
+      <screen x="0" y="23" width="1680" height="978" />
+    </state>
+    <state x="211" y="156" width="1163" height="672" key="DiffContextDialog/0.23.1680.978@0.23.1680.978" timestamp="1600235028140" />
+    <state x="689" y="171" key="RollbackChangesDialog" timestamp="1600249742413">
+      <screen x="0" y="23" width="1680" height="978" />
+    </state>
+    <state x="689" y="171" key="RollbackChangesDialog/0.23.1680.978@0.23.1680.978" timestamp="1600249742413" />
+    <state x="492" y="217" width="670" height="676" key="search.everywhere.popup" timestamp="1600244540953">
+      <screen x="0" y="23" width="1680" height="977" />
+    </state>
+    <state x="492" y="217" width="670" height="676" key="search.everywhere.popup/0.23.1680.977@0.23.1680.977" timestamp="1600244540953" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/api/src/base/index.ts</url>
+          <line>30</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/api/test/util/logEvents.ts</url>
+          <line>4</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
