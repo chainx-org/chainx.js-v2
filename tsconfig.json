@@ -1,0 +1,21 @@
+{
+  "extends": "./node_modules/@polkadot/dev/config/tsconfig",
+  "exclude": [
+    "build/**/*",
+    "**/build/**/*",
+    "examples/promise/90_typegen/*"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths":
+    {
+      "@polkadot/api": ["packages/api/src"],
+      "@polkadot/api/*": ["packages/api/src/*"]
+    },
+    "skipLibCheck": true,
+    "typeRoots": [
+      "./node_modules/@polkadot/ts",
+      "./node_modules/@types"
+    ]
+  }
+}
