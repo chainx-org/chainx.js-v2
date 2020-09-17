@@ -6,7 +6,7 @@ const { encodeAddress } = require('@polkadot/keyring');
 const { Account } = require('@chainx-v2/account');
 const { options } =require('@chainx-v2/api');
 
-const url = 'ws://47.114.131.193:9000';
+const url = 'wss://staging-1.chainx.org/ws';
 const wsProvider = new WsProvider(url);
 
 const keyring = testKeyring();
