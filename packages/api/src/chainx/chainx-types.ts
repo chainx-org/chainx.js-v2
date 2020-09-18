@@ -570,5 +570,15 @@ export default {
   // eslint-disable-next-line sort-keys
   RpcPrice: 'String',
   // eslint-disable-next-line sort-keys
-  MiningPower: 'u128'
+  MiningPower: 'u128',
+  WithdrawalRecordOf: 'WithdrawalRecord',
+  WithdrawalRecordForRpc: {
+      assetId: 'AssetId',
+      applicant: 'AccountId',
+      balance: 'RpcBalance',
+      addr: 'String',
+      ext: 'String',
+      height: 'BlockNumber',
+      state: 'WithdrawalState'
+  }
 };
