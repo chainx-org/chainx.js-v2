@@ -11,7 +11,7 @@ import {
 } from '@polkadot/util-crypto';
 import { encodeAddress, decodeAddress, setSS58Format } from '@polkadot/keyring';
 import { PKCS8_HEADER } from '@polkadot/keyring/pair/defaults';
-import { isHex, u8aToHex, hexToU8a } from '@chainx-v2/util';
+import { isHex, u8aToHex, hexToU8a } from '@polkadot/util';
 import u8aFrom from './u8aFrom';
 import decodePkcs8 from '@polkadot/keyring/pair/decode';
 import encodePkcs8 from '@polkadot/keyring/pair/encode';
