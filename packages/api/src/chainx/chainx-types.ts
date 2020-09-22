@@ -420,5 +420,6 @@ export default {
     "ext": "String",
     "height": "BlockNumber",
     "state": "WithdrawalState"
-  }
+  },
+  "FullIdentification": "ValidatorId"
 };
