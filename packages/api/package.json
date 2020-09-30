@@ -5,9 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@babel/runtime": "^7.11.2",
-    "@chainx-v2/account": "0.0.27",
-    "@polkadot/api": "1.33.1",
-    "@polkadot/keyring": "^3.4.1",
+    "@chainx-v2/account": "0.0.36",
     "bn.js": "^5.1.3",
     "eventemitter3": "^4.0.7",
     "rxjs": "^6.6.3"
