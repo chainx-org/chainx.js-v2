@@ -105,6 +105,7 @@ export default {
     "minTimespan": "u32",
     "maxTimespan": "u32"
   },
+
   "MiningAssetInfo": {
     "assetId": "AssetId",
     "miningPower": "FixedAssetPower",
@@ -318,11 +319,7 @@ export default {
   },
   "BtcCompact": "u32",
   "BtcTransaction": "Vec<u8>",
-  "BtcPartialMerkleTree": {
-    "txCount": "u32",
-    "hashes": "Vec<H256>",
-    "bits": "Vec<bool>"
-  },
+  "BtcPartialMerkleTree": "Vec<u8>",
   "BtcRelayedTxInfo": {
     "blockHash": "H256",
     "merkleProof": "BtcPartialMerkleTree"
