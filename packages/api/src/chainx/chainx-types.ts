@@ -18,17 +18,6 @@ export default {
       "Polkadot"
     ]
   },
-  "XRC20Selector": {
-    "_enum": [
-      "BalanceOf",
-      "TotalSupply",
-      "Name",
-      "Symbol",
-      "Decimals",
-      "Issue",
-      "Destroy"
-    ]
-  },
   "OrderType": {
     "_enum": [
       "Limit",
@@ -55,11 +44,11 @@ export default {
   },
   "Memo": "Text",
   "AssetInfo": {
-    "token": "Token",
-    "tokenName": "Token",
+    "token": "String",
+    "tokenName": "String",
     "chain": "Chain",
     "decimals": "Decimals",
-    "desc": "Desc"
+    "desc": "String"
   },
   "TradingPairProfile": {
     "id": "TradingPairId",
@@ -105,7 +94,6 @@ export default {
     "minTimespan": "u32",
     "maxTimespan": "u32"
   },
-
   "MiningAssetInfo": {
     "assetId": "AssetId",
     "miningPower": "FixedAssetPower",
@@ -139,7 +127,7 @@ export default {
     "lockedUntil": "BlockNumber"
   },
   "ValidatorLedger": {
-    "total": "Balance",
+    "totalNomination": "Balance",
     "lastTotalVoteWeight": "WeightType",
     "lastTotalVoteWeightUpdate": "BlockNumber"
   },
@@ -167,7 +155,6 @@ export default {
   "Desc": "Text",
   "Token": "Text",
   "AddrStr": "Text",
-  "Selector": "[u8; 4]",
   "HandicapInfo": "Handicap",
   "Price": "Balance",
   "OrderId": "u64",
@@ -208,14 +195,7 @@ export default {
   "AssetRestrictions": {
     "mask": "u32"
   },
-  "BtcHeader": {
-    "version": "u32",
-    "previousHeaderHash": "H256",
-    "merkleRootHash": "H256",
-    "time": "u32",
-    "bits": "BtcCompact",
-    "nonce": "u32"
-  },
+  "BtcHeader": "Vec<u8>",
   "BtcNetwork": {
     "_enum": [
       "Mainnet",
@@ -263,6 +243,7 @@ export default {
     "isOnline": "bool",
     "restrictions": "AssetRestrictions"
   },
+  "WithdrawalRecordId": "u32",
   "WithdrawalState": {
     "_enum": [
       "Applying",
@@ -317,7 +298,6 @@ export default {
     "hotAddress": "BtcTrusteeAddrInfo",
     "coldAddress": "BtcTrusteeAddrInfo"
   },
-  "BtcCompact": "u32",
   "BtcTransaction": "Vec<u8>",
   "BtcPartialMerkleTree": "Vec<u8>",
   "BtcRelayedTxInfo": {
@@ -408,8 +388,9 @@ export default {
   "String": "Text",
   "Balance": "u128",
   "MiningPower": "u128",
+  "FullIdentification": "ValidatorId",
   "WithdrawalRecordOf": "WithdrawalRecord",
-  "WithdrawalRecordForRpc": {
+  "RpcWithdrawalRecord": {
     "assetId": "AssetId",
     "applicant": "AccountId",
     "balance": "Balance",
@@ -417,6 +398,5 @@ export default {
     "ext": "String",
     "height": "BlockNumber",
     "state": "WithdrawalState"
-  },
-  "FullIdentification": "ValidatorId"
-};
+  }
+}

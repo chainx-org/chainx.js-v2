@@ -7,7 +7,7 @@ const { Account } = require('@chainx-v2/account');
 const { options } = require('@chainx-v2/api');
 const { ConsoleLogger } = require('typedoc/dist/lib/utils');
 
-const url = 'ws://47.114.150.67:8000';
+const url = 'wss://staging-1.chainx.org/ws';
 const wsProvider = new WsProvider(url);
 
 // Create a keyring instance
@@ -53,9 +53,13 @@ async function excuteTransfer() {
   const transfer = api.tx.balances.transfer('5CRWi74MEjWvAxoHspUizixTbuxHcUXEqpgpMjC1wyPrB6Sb', 400 * Math.pow(10, 8));
 
   // Sign and send the transaction using our account
-  const hash = await transfer.signAndSend(alice);
+  //const hash = await transfer.signAndSend(alice);
 
-  console.log('Transfer sent with hash', hash.toHex());
+  // console.log('Transfer sent with hash', hash.toHex());
+
+  // 民主提案
+  const proposals = await api.derive.democracy.proposals()
+  console.log("proposals list: " + JSON.stringify(proposals))
 
   process.exit();
 }
