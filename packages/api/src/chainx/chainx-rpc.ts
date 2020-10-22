@@ -203,7 +203,7 @@ export default {
           "isOptional": true
         }
       ],
-      "type": "BTreeMap<u32, WithdrawalRecordForRpc<AccountId, Balance, BlockNumber>>"
+      "type": "BTreeMap<WithdrawalRecordId, RpcWithdrawalRecord<AccountId, Balance, BlockNumber>>"
     },
     "withdrawalListByChain": {
       "description": "Return current withdraw list for a chain(include Applying and Processing withdraw state)",
@@ -218,7 +218,7 @@ export default {
           "isOptional": true
         }
       ],
-      "type": "BTreeMap<u32, WithdrawalRecordForRpc<AccountId, Balance, BlockNumber>>"
+      "type": "BTreeMap<WithdrawalRecordId, RpcWithdrawalRecord<AccountId, Balance, BlockNumber>>"
     },
     "pendingWithdrawalList": {
       "description": "Return current pending withdraw list for a chain",
@@ -233,7 +233,7 @@ export default {
           "isOptional": true
         }
       ],
-      "type": "BTreeMap<u32, WithdrawalRecordForRpc<AccountId, Balance, BlockNumber>>"
+      "type": "BTreeMap<WithdrawalRecordId, RpcWithdrawalRecord<AccountId, Balance, BlockNumber>>"
     }
   },
   "xminingasset": {

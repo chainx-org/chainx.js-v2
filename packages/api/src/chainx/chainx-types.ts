@@ -6,8 +6,7 @@ export default {
       "Locked",
       "Reserved",
       "ReservedWithdrawal",
-      "ReservedDexSpot",
-      "ReservedXRC20"
+      "ReservedDexSpot"
     ]
   },
   "Chain": {
