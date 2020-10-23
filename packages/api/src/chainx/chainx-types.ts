@@ -179,7 +179,7 @@ export default {
   },
   "AssetId": "u32",
   "MiningWeight": "u128",
-  "WeightType": "u128",
+  "WeightType": "Text",
   "ReferralId": "Text",
   "AssetRestriction": {
     "_enum": [
@@ -354,7 +354,7 @@ export default {
     "isChilled": "bool",
     "lastChilled": "Option<BlockNumber>",
     "total": "Balance",
-    "lastTotalVoteWeight": "WeightType",
+    "lastTotalVoteWeight": "Text",
     "lastTotalVoteWeightUpdate": "BlockNumber",
     "isValidating": "bool",
     "selfBonded": "Balance",
