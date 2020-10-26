@@ -1,5 +1,5 @@
 // eslint-disable-next-line header/header
-import { isHex, hexToU8a, bufferToU8a, stringToU8a } from '@chainx-v2/util';
+import { isHex, hexToU8a, bufferToU8a, stringToU8a } from '@polkadot/util';
 
 /**
  * @name u8aFrom
