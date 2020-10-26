@@ -1,401 +1,405 @@
 // eslint-disable-next-line sort-keys,header/header
-export default {
-  "AssetType": {
-    "_enum": [
-      "Usable",
-      "Locked",
-      "Reserved",
-      "ReservedWithdrawal",
-      "ReservedDexSpot"
+export default
+{
+  NetworkType: {
+    _enum: [
+      'Mainnet',
+      'Testnet'
     ]
   },
-  "Chain": {
-    "_enum": [
-      "ChainX",
-      "Bitcoin",
-      "Ethereum",
-      "Polkadot"
+  AssetType: {
+    _enum: [
+      'Usable',
+      'Locked',
+      'Reserved',
+      'ReservedWithdrawal',
+      'ReservedDexSpot'
     ]
   },
-  "OrderType": {
-    "_enum": [
-      "Limit",
-      "Market"
+  Chain: {
+    _enum: [
+      'ChainX',
+      'Bitcoin',
+      'Ethereum',
+      'Polkadot'
     ]
   },
-  "Side": {
-    "_enum": [
-      "Buy",
-      "Sell"
+  OrderType: {
+    _enum: [
+      'Limit',
+      'Market'
     ]
   },
-  "LockedType": {
-    "_enum": [
-      "Bonded",
-      "BondedWithdrawal"
+  Side: {
+    _enum: [
+      'Buy',
+      'Sell'
     ]
   },
-  "NetworkType": {
-    "_enum": [
-      "Mainnet",
-      "Testnet"
+  LockedType: {
+    _enum: [
+      'Bonded',
+      'BondedWithdrawal'
     ]
   },
-  "Memo": "Text",
-  "AssetInfo": {
-    "token": "String",
-    "tokenName": "String",
-    "chain": "Chain",
-    "decimals": "Decimals",
-    "desc": "String"
+  Memo: 'Text',
+  AssetInfo: {
+    token: 'String',
+    tokenName: 'String',
+    chain: 'Chain',
+    decimals: 'Decimals',
+    desc: 'String'
   },
-  "TradingPairProfile": {
-    "id": "TradingPairId",
-    "currencyPair": "CurrencyPair",
-    "pipDecimals": "u32",
-    "tickDecimals": "u32",
-    "tradable": "bool"
+  TradingPairProfile: {
+    id: 'TradingPairId',
+    currencyPair: 'CurrencyPair',
+    pipDecimals: 'u32',
+    tickDecimals: 'u32',
+    tradable: 'bool'
   },
-  "Order": {
-    "props": "OrderProperty",
-    "status": "OrderStatus",
-    "remaining": "Balance",
-    "executedIndices": "Vec<TradingHistoryIndex>",
-    "alreadyFilled": "Balance",
-    "lastUpdateAt": "BlockNumber"
+  Order: {
+    props: 'OrderProperty',
+    status: 'OrderStatus',
+    remaining: 'Balance',
+    executedIndices: 'Vec<TradingHistoryIndex>',
+    alreadyFilled: 'Balance',
+    lastUpdateAt: 'BlockNumber'
   },
-  "TradingPairInfo": {
-    "latestPrice": "Price",
-    "lastUpdated": "BlockNumber"
+  TradingPairInfo: {
+    latestPrice: 'Price',
+    lastUpdated: 'BlockNumber'
   },
-  "OrderExecutedInfo": {
-    "tradingHistoryIdx": "TradingHistoryIndex",
-    "pairId": "TradingPairId",
-    "price": "Price",
-    "maker": "AccountId",
-    "taker": "AccountId",
-    "makerOrderId": "OrderId",
-    "takerOrderId": "OrderId",
-    "turnover": "Balance",
-    "executedAt": "BlockNumber"
+  OrderExecutedInfo: {
+    tradingHistoryIdx: 'TradingHistoryIndex',
+    pairId: 'TradingPairId',
+    price: 'Price',
+    maker: 'AccountId',
+    taker: 'AccountId',
+    makerOrderId: 'OrderId',
+    takerOrderId: 'OrderId',
+    turnover: 'Balance',
+    executedAt: 'BlockNumber'
   },
-  "BtcHeaderInfo": {
-    "header": "BtcHeader",
-    "height": "u32"
+  BtcHeaderInfo: {
+    header: 'BtcHeader',
+    height: 'u32'
   },
-  "BtcParams": {
-    "maxBits": "u32",
-    "blockMaxFuture": "u32",
-    "targetTimespanSeconds": "u32",
-    "targetSpacingSeconds": "u32",
-    "retargetingFactor": "u32",
-    "retargetingInterval": "u32",
-    "minTimespan": "u32",
-    "maxTimespan": "u32"
+  BtcParams: {
+    maxBits: 'u32',
+    blockMaxFuture: 'u32',
+    targetTimespanSeconds: 'u32',
+    targetSpacingSeconds: 'u32',
+    retargetingFactor: 'u32',
+    retargetingInterval: 'u32',
+    minTimespan: 'u32',
+    maxTimespan: 'u32'
   },
-  "MiningAssetInfo": {
-    "assetId": "AssetId",
-    "miningPower": "FixedAssetPower",
-    "rewardPot": "AccountId",
-    "rewardPotBalance": "Balance",
-    "lastTotalMiningWeight": "WeightType",
-    "lastTotalMiningWeightUpdate": "BlockNumber"
+  MiningAssetInfo: {
+    assetId: 'AssetId',
+    miningPower: 'FixedAssetPower',
+    rewardPot: 'AccountId',
+    rewardPotBalance: 'Balance',
+    lastTotalMiningWeight: 'MiningWeight',
+    lastTotalMiningWeightUpdate: 'BlockNumber'
   },
-  "AssetLedger": {
-    "lastTotalMiningWeight": "MiningWeight",
-    "lastTotalMiningWeightUpdate": "BlockNumber"
+  AssetLedger: {
+    lastTotalMiningWeight: 'MiningWeight',
+    lastTotalMiningWeightUpdate: 'BlockNumber'
   },
-  "MinerLedger": {
-    "lastMiningWeight": "MiningWeight",
-    "lastMiningWeightUpdate": "BlockNumber",
-    "lastClaim": "Option<BlockNumber>"
+  MinerLedger: {
+    lastMiningWeight: 'MiningWeight',
+    lastMiningWeightUpdate: 'BlockNumber',
+    lastClaim: 'Option<BlockNumber>'
   },
-  "ClaimRestriction": {
-    "stakingRequirement": "StakingRequirement",
-    "frequencyLimit": "BlockNumber"
+  ClaimRestriction: {
+    stakingRequirement: 'StakingRequirement',
+    frequencyLimit: 'BlockNumber'
   },
-  "NominatorInfo": {
-    "lastRebond": "Option<BlockNumber>"
+  NominatorInfo: {
+    lastRebond: 'Option<BlockNumber>'
   },
-  "BondRequirement": {
-    "selfBonded": "Balance",
-    "total": "Balance"
+  BondRequirement: {
+    selfBonded: 'Balance',
+    total: 'Balance'
   },
-  "Unbonded": {
-    "value": "Balance",
-    "lockedUntil": "BlockNumber"
+  Unbonded: {
+    value: 'Balance',
+    lockedUntil: 'BlockNumber'
   },
-  "ValidatorLedger": {
-    "totalNomination": "Balance",
-    "lastTotalVoteWeight": "WeightType",
-    "lastTotalVoteWeightUpdate": "BlockNumber"
+  ValidatorLedger: {
+    totalNomination: 'Balance',
+    lastTotalVoteWeight: 'VoteWeight',
+    lastTotalVoteWeightUpdate: 'BlockNumber'
   },
-  "NominatorLedger": {
-    "nomination": "Balance",
-    "lastVoteWeight": "WeightType",
-    "lastVoteWeightUpdate": "BlockNumber",
-    "unbondedChunks": "Vec<Unbonded>"
+  NominatorLedger: {
+    nomination: 'Balance',
+    lastVoteWeight: 'VoteWeight',
+    lastVoteWeightUpdate: 'BlockNumber',
+    unbondedChunks: 'Vec<Unbonded>'
   },
-  "ValidatorProfile": {
-    "registeredAt": "BlockNumber",
-    "isChilled": "bool",
-    "lastChilled": "Option<BlockNumber>",
-    "referralId": "ReferralId"
+  ValidatorProfile: {
+    registeredAt: 'BlockNumber',
+    isChilled: 'bool',
+    lastChilled: 'Option<BlockNumber>',
+    referralId: 'ReferralId'
   },
-  "GlobalDistribution": {
-    "treasury": "u32",
-    "mining": "u32"
+  GlobalDistribution: {
+    treasury: 'u32',
+    mining: 'u32'
   },
-  "MiningDistribution": {
-    "asset": "u32",
-    "staking": "u32"
+  MiningDistribution: {
+    asset: 'u32',
+    staking: 'u32'
   },
-  "UnbondedIndex": "u32",
-  "Desc": "Text",
-  "Token": "Text",
-  "AddrStr": "Text",
-  "HandicapInfo": "Handicap",
-  "Price": "Balance",
-  "OrderId": "u64",
-  "TradingPairId": "u32",
-  "TradingHistoryIndex": "u64",
-  "PriceFluctuation": "u32",
-  "BtcAddress": "Text",
-  "FixedAssetPower": "u32",
-  "StakingRequirement": "u32",
-  "Decimals": "u8",
-  "CurrencyPair": {
-    "base": "AssetId",
-    "quote": "AssetId"
+  UnbondedIndex: 'u32',
+  Desc: 'Text',
+  Token: 'Text',
+  AddrStr: 'Text',
+  HandicapInfo: 'Handicap',
+  Price: 'u128',
+  OrderId: 'u64',
+  TradingPairId: 'u32',
+  TradingHistoryIndex: 'u64',
+  PriceFluctuation: 'u32',
+  BtcAddress: 'Text',
+  FixedAssetPower: 'u32',
+  StakingRequirement: 'u32',
+  Decimals: 'u8',
+  CurrencyPair: {
+    base: 'AssetId',
+    quote: 'AssetId'
   },
-  "OrderStatus": {
-    "_enum": [
-      "Created",
-      "PartialFill",
-      "Filled",
-      "PartialFillAndCanceled",
-      "Canceled"
+  OrderStatus: {
+    _enum: [
+      'Created',
+      'PartialFill',
+      'Filled',
+      'PartialFillAndCanceled',
+      'Canceled'
     ]
   },
-  "AssetId": "u32",
-  "MiningWeight": "u128",
-  "WeightType": "Text",
-  "ReferralId": "Text",
-  "AssetRestriction": {
-    "_enum": [
-      "Move",
-      "Transfer",
-      "Deposit",
-      "Withdraw",
-      "DestroyWithdrawal",
-      "DestroyFree"
+  AssetId: 'u32',
+  MiningWeight: 'u128',
+  VoteWeight: 'u128',
+  ReferralId: 'Text',
+  AssetRestriction: {
+    _enum: [
+      'Move',
+      'Transfer',
+      'Deposit',
+      'Withdraw',
+      'DestroyWithdrawal',
+      'DestroyFree'
     ]
   },
-  "AssetRestrictions": {
-    "mask": "u32"
+  AssetRestrictions: {
+    bits: 'u32'
   },
-  "BtcHeader": "Vec<u8>",
-  "BtcNetwork": {
-    "_enum": [
-      "Mainnet",
-      "Testnet"
+  BtcHeader: 'Vec<u8>',
+  BtcNetwork: {
+    _enum: [
+      'Mainnet',
+      'Testnet'
     ]
   },
-  "OrderInfo": "Order",
-  "Amount": "i128",
-  "AmountOf": "Amount",
-  "CurrencyIdOf": "AssetId",
-  "CurrencyId": "AssetId",
-  "Handicap": {
-    "highestBid": "Price",
-    "lowestAsk": "Price"
+  OrderInfo: 'Order',
+  Amount: 'i128',
+  AmountOf: 'Amount',
+  CurrencyIdOf: 'AssetId',
+  CurrencyId: 'AssetId',
+  Handicap: {
+    highestBid: 'Price',
+    lowestAsk: 'Price'
   },
-  "OrderProperty": {
-    "id": "OrderId",
-    "side": "Side",
-    "price": "Price",
-    "amount": "Amount",
-    "pairId": "TradingPairId",
-    "submitter": "AccountId",
-    "orderType": "OrderType",
-    "createdAt": "BlockNumber"
+  OrderProperty: {
+    id: 'OrderId',
+    side: 'Side',
+    price: 'Price',
+    amount: 'Amount',
+    pairId: 'TradingPairId',
+    submitter: 'AccountId',
+    orderType: 'OrderType',
+    createdAt: 'BlockNumber'
   },
-  "RpcOrder": {
-    "orderId": "OrderId",
-    "side": "Side",
-    "price": "Price",
-    "amount": "Balance",
-    "pairId": "TradingPairId",
-    "submitter": "AccountId",
-    "orderType": "OrderType",
-    "createdAt": "BlockNumber",
-    "status": "OrderStatus",
-    "remaining": "Balance",
-    "executedIndices": "Vec<TradingHistoryIndex>",
-    "alreadyFilled": "Balance",
-    "reservedBalance": "Balance",
-    "lastUpdateAt": "BlockNumber"
+  RpcOrder: {
+    orderId: 'OrderId',
+    side: 'Side',
+    price: 'Price',
+    amount: 'Balance',
+    pairId: 'TradingPairId',
+    submitter: 'AccountId',
+    orderType: 'OrderType',
+    createdAt: 'BlockNumber',
+    status: 'OrderStatus',
+    remaining: 'Balance',
+    executedIndices: 'Vec<TradingHistoryIndex>',
+    alreadyFilled: 'Balance',
+    reservedBalance: 'Balance',
+    lastUpdateAt: 'BlockNumber'
   },
-  "TotalAssetInfo": {
-    "info": "AssetInfo",
-    "balance": "BTreeMap<AssetType, Balance>",
-    "isOnline": "bool",
-    "restrictions": "AssetRestrictions"
+  TotalAssetInfo: {
+    info: 'AssetInfo',
+    balance: 'BTreeMap<AssetType, Balance>',
+    isOnline: 'bool',
+    restrictions: 'AssetRestrictions'
   },
-  "WithdrawalRecordId": "u32",
-  "WithdrawalState": {
-    "_enum": [
-      "Applying",
-      "Processing",
-      "NormalFinish",
-      "RootFinish",
-      "NormalCancel",
-      "RootCancel"
+  WithdrawalRecordId: 'u32',
+  WithdrawalState: {
+    _enum: [
+      'Applying',
+      'Processing',
+      'NormalFinish',
+      'RootFinish',
+      'NormalCancel',
+      'RootCancel'
     ]
   },
-  "WithdrawalRecord": {
-    "assetId": "AssetId",
-    "applicant": "AccountId",
-    "balance": "Balance",
-    "addr": "AddrStr",
-    "ext": "Memo",
-    "height": "BlockNumber"
+  WithdrawalRecord: {
+    assetId: 'AssetId',
+    applicant: 'AccountId',
+    balance: 'Balance',
+    addr: 'AddrStr',
+    ext: 'Memo',
+    height: 'BlockNumber'
   },
-  "WithdrawalLimit": {
-    "minimalWithdrawal": "Balance",
-    "fee": "Balance"
+  WithdrawalLimit: {
+    minimalWithdrawal: 'Balance',
+    fee: 'Balance'
   },
-  "TrusteeInfoConfig": {
-    "minTrusteeCount": "u32",
-    "maxTrusteeCount": "u32"
+  TrusteeInfoConfig: {
+    minTrusteeCount: 'u32',
+    maxTrusteeCount: 'u32'
   },
-  "GenericTrusteeIntentionProps": {
-    "about": "Text",
-    "hotEntity": "Vec<u8>",
-    "coldEntity": "Vec<u8>"
+  GenericTrusteeIntentionProps: {
+    about: 'Text',
+    hotEntity: 'Vec<u8>',
+    coldEntity: 'Vec<u8>'
   },
-  "GenericTrusteeSessionInfo": {
-    "trusteeList": "Vec<AccountId>",
-    "threshold": "u16",
-    "hotAddress": "Vec<u8>",
-    "coldAddress": "Vec<u8>"
+  GenericTrusteeSessionInfo: {
+    trusteeList: 'Vec<AccountId>',
+    threshold: 'u16',
+    hotAddress: 'Vec<u8>',
+    coldAddress: 'Vec<u8>'
   },
-  "ChainAddress": "Vec<u8>",
-  "BtcTrusteeType": "Vec<u8>",
-  "BtcTrusteeAddrInfo": {
-    "addr": "BtcAddress",
-    "redeemScript": "Vec<u8>"
+  ChainAddress: 'Vec<u8>',
+  BtcTrusteeType: 'Vec<u8>',
+  BtcTrusteeAddrInfo: {
+    addr: 'BtcAddress',
+    redeemScript: 'Vec<u8>'
   },
-  "BtcTrusteeIntentionProps": {
-    "about": "Text",
-    "hotEntity": "BtcTrusteeType",
-    "coldEntity": "BtcTrusteeType"
+  BtcTrusteeIntentionProps: {
+    about: 'Text',
+    hotEntity: 'BtcTrusteeType',
+    coldEntity: 'BtcTrusteeType'
   },
-  "BtcTrusteeSessionInfo": {
-    "trusteeList": "Vec<AccountId>",
-    "threshold": "u16",
-    "hotAddress": "BtcTrusteeAddrInfo",
-    "coldAddress": "BtcTrusteeAddrInfo"
+  BtcTrusteeSessionInfo: {
+    trusteeList: 'Vec<AccountId>',
+    threshold: 'u16',
+    hotAddress: 'BtcTrusteeAddrInfo',
+    coldAddress: 'BtcTrusteeAddrInfo'
   },
-  "BtcTransaction": "Vec<u8>",
-  "BtcPartialMerkleTree": "Vec<u8>",
-  "BtcRelayedTxInfo": {
-    "blockHash": "H256",
-    "merkleProof": "BtcPartialMerkleTree"
+  BtcTransaction: 'Vec<u8>',
+  BtcPartialMerkleTree: 'Vec<u8>',
+  BtcRelayedTxInfo: {
+    blockHash: 'H256',
+    merkleProof: 'BtcPartialMerkleTree'
   },
-  "BtcHeaderIndex": {
-    "hash": "H256",
-    "height": "u32"
+  BtcHeaderIndex: {
+    hash: 'H256',
+    height: 'u32'
   },
-  "BtcTxResult": {
-    "_enum": [
-      "Success",
-      "Failed"
+  BtcTxResult: {
+    _enum: [
+      'Success',
+      'Failed'
     ]
   },
-  "BtcTxState": {
-    "result": "BtcTxResult",
-    "txType": "BtcTxType"
+  BtcTxState: {
+    result: 'BtcTxResult',
+    txType: 'BtcTxType'
   },
-  "BtcTxType": {
-    "_enum": [
-      "Withdrawal",
-      "Deposit",
-      "HotAndCold",
-      "TrusteeTransition",
-      "Irrelevance"
+  BtcTxType: {
+    _enum: [
+      'Withdrawal',
+      'Deposit',
+      'HotAndCold',
+      'TrusteeTransition',
+      'Irrelevance'
     ]
   },
-  "BtcDepositCache": {
-    "txid": "H256",
-    "balance": "u64"
+  BtcDepositCache: {
+    txid: 'H256',
+    balance: 'u64'
   },
-  "BtcVoteResult": {
-    "_enum": [
-      "Unfinish",
-      "Finish"
+  BtcVoteResult: {
+    _enum: [
+      'Unfinish',
+      'Finish'
     ]
   },
-  "BtcWithdrawalProposal": {
-    "sigState": "BtcVoteResult",
-    "withdrawalIdList": "Vec<u32>",
-    "tx": "BtcTransaction",
-    "trusteeList": "Vec<(AccountId, bool)>"
+  BtcWithdrawalProposal: {
+    sigState: 'BtcVoteResult',
+    withdrawalIdList: 'Vec<u32>',
+    tx: 'BtcTransaction',
+    trusteeList: 'Vec<(AccountId, bool)>'
   },
-  "BtcTxVerifier": {
-    "_enum": [
-      "Recover",
-      "RuntimeInterface"
+  BtcTxVerifier: {
+    _enum: [
+      'Recover',
+      'RuntimeInterface'
     ]
   },
-  "ValidatorInfo": {
-    "account": "AccountId",
-    "registeredAt": "BlockNumber",
-    "isChilled": "bool",
-    "lastChilled": "Option<BlockNumber>",
-    "total": "Balance",
-    "lastTotalVoteWeight": "Text",
-    "lastTotalVoteWeightUpdate": "BlockNumber",
-    "isValidating": "bool",
-    "selfBonded": "Balance",
-    "rewardPotAccount": "AccountId",
-    "rewardPotBalance": "Balance"
+  ValidatorInfo: {
+    account: 'AccountId',
+    registeredAt: 'BlockNumber',
+    isChilled: 'bool',
+    lastChilled: 'Option<BlockNumber>',
+    total: 'Balance',
+    lastTotalVoteWeight: 'VoteWeight',
+    lastTotalVoteWeightUpdate: 'BlockNumber',
+    isValidating: 'bool',
+    selfBonded: 'Balance',
+    rewardPotAccount: 'AccountId',
+    rewardPotBalance: 'Balance'
   },
-  "FullPairInfo": {
-    "baseCurrency": "AssetId",
-    "highestBid": "Price",
-    "id": "TradingPairId",
-    "latestPrice": "Price",
-    "latestPriceUpdatedAt": "BlockNumber",
-    "lowestAsk": "Price",
-    "maxValidBid": "Price",
-    "minValidAsk": "Price",
-    "pipDecimals": "u32",
-    "quoteCurrency": "AssetId",
-    "tickDecimals": "u32",
-    "tradable": "bool"
+  FullPairInfo: {
+    baseCurrency: 'AssetId',
+    highestBid: 'Price',
+    id: 'TradingPairId',
+    latestPrice: 'Price',
+    latestPriceUpdatedAt: 'BlockNumber',
+    lowestAsk: 'Price',
+    maxValidBid: 'Price',
+    minValidAsk: 'Price',
+    pipDecimals: 'u32',
+    quoteCurrency: 'AssetId',
+    tickDecimals: 'u32',
+    tradable: 'bool'
   },
-  "Depth": {
-    "asks": "Vec<(Price, Balance)>",
-    "bids": "Vec<(Price, Balance)>"
+  Depth: {
+    asks: 'Vec<(Price, Balance)>',
+    bids: 'Vec<(Price, Balance)>'
   },
-  "Page": {
-    "pageIndex": "u32",
-    "pageSize": "u32",
-    "data": "Vec<RpcOrder>"
+  Page: {
+    pageIndex: 'u32',
+    pageSize: 'u32',
+    data: 'Vec<RpcOrder>'
   },
-  "String": "Text",
-  "Balance": "u128",
-  "MiningPower": "u128",
-  "FullIdentification": "ValidatorId",
-  "WithdrawalRecordOf": "WithdrawalRecord",
-  "RpcWithdrawalRecord": {
-    "assetId": "AssetId",
-    "applicant": "AccountId",
-    "balance": "Balance",
-    "addr": "String",
-    "ext": "String",
-    "height": "BlockNumber",
-    "state": "WithdrawalState"
+  String: 'Text',
+  Balance: 'u128',
+  RpcPrice: 'String',
+  RpcBalance: 'String',
+  RpcMiningWeight: 'String',
+  RpcVoteWeight: 'String',
+  FullIdentification: 'ValidatorId',
+  WithdrawalRecordOf: 'WithdrawalRecord',
+  RpcWithdrawalRecord: {
+    assetId: 'AssetId',
+    applicant: 'AccountId',
+    balance: 'Balance',
+    addr: 'String',
+    ext: 'String',
+    height: 'BlockNumber',
+    state: 'WithdrawalState'
   }
-}
+};
