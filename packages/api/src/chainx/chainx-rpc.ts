@@ -246,7 +246,7 @@ export default {
           isOptional: true
         }
       ],
-      type: 'Vec<MiningAssetInfo<AccountId, RpcBalance<Balance>, RpcMiningWeight<MiningWeight>, BlockNumber>'
+      type: 'Vec<MiningAssetInfo<AccountId, RpcBalance<Balance>, RpcMiningWeight<MiningWeight>, BlockNumber>>'
     },
     getDividendByAccount: {
       description: 'Get the asset mining dividends info given the asset miner AccountId.',
