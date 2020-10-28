@@ -1,6 +1,5 @@
 // eslint-disable-next-line sort-keys,header/header
-export default
-{
+export default {
   NetworkType: {
     _enum: [
       'Mainnet',
@@ -98,8 +97,8 @@ export default
     assetId: 'AssetId',
     miningPower: 'FixedAssetPower',
     rewardPot: 'AccountId',
-    rewardPotBalance: 'Balance',
-    lastTotalMiningWeight: 'MiningWeight',
+    rewardPotBalance: 'RpcBalance',
+    lastTotalMiningWeight: 'RpcMiningWeight',
     lastTotalMiningWeightUpdate: 'BlockNumber'
   },
   AssetLedger: {
@@ -221,22 +220,6 @@ export default
     orderType: 'OrderType',
     createdAt: 'BlockNumber'
   },
-  RpcOrder: {
-    orderId: 'OrderId',
-    side: 'Side',
-    price: 'Price',
-    amount: 'Balance',
-    pairId: 'TradingPairId',
-    submitter: 'AccountId',
-    orderType: 'OrderType',
-    createdAt: 'BlockNumber',
-    status: 'OrderStatus',
-    remaining: 'Balance',
-    executedIndices: 'Vec<TradingHistoryIndex>',
-    alreadyFilled: 'Balance',
-    reservedBalance: 'Balance',
-    lastUpdateAt: 'BlockNumber'
-  },
   TotalAssetInfo: {
     info: 'AssetInfo',
     balance: 'BTreeMap<AssetType, Balance>',
@@ -349,36 +332,68 @@ export default
       'RuntimeInterface'
     ]
   },
+  RpcTotalAssetInfo: {
+    info: 'AssetInfo',
+    balance: 'BTreeMap<AssetType, RpcBalance>',
+    isOnline: 'bool',
+    restrictions: 'AssetRestrictions'
+  },
+  RpcOrder: {
+    orderId: 'OrderId',
+    side: 'Side',
+    price: 'RpcPrice',
+    amount: 'RpcBalance',
+    pairId: 'TradingPairId',
+    submitter: 'AccountId',
+    orderType: 'OrderType',
+    createdAt: 'BlockNumber',
+    status: 'OrderStatus',
+    remaining: 'RpcBalance',
+    executedIndices: 'Vec<TradingHistoryIndex>',
+    alreadyFilled: 'RpcBalance',
+    reservedBalance: 'RpcBalance',
+    lastUpdateAt: 'BlockNumber'
+  },
+  RpcWithdrawalRecord: {
+    assetId: 'AssetId',
+    applicant: 'AccountId',
+    balance: 'RpcBalance',
+    addr: 'String',
+    ext: 'String',
+    height: 'BlockNumber',
+    state: 'WithdrawalState'
+  },
   ValidatorInfo: {
     account: 'AccountId',
     registeredAt: 'BlockNumber',
     isChilled: 'bool',
     lastChilled: 'Option<BlockNumber>',
-    total: 'Balance',
-    lastTotalVoteWeight: 'VoteWeight',
+    totalNomination: 'RpcBalance',
+    lastTotalVoteWeight: 'RpcVoteWeight',
     lastTotalVoteWeightUpdate: 'BlockNumber',
     isValidating: 'bool',
-    selfBonded: 'Balance',
+    selfBonded: 'RpcBalance',
+    referralId: 'String',
     rewardPotAccount: 'AccountId',
-    rewardPotBalance: 'Balance'
+    rewardPotBalance: 'RpcBalance'
   },
   FullPairInfo: {
     baseCurrency: 'AssetId',
-    highestBid: 'Price',
+    highestBid: 'RpcPrice',
     id: 'TradingPairId',
-    latestPrice: 'Price',
+    latestPrice: 'RpcPrice',
     latestPriceUpdatedAt: 'BlockNumber',
-    lowestAsk: 'Price',
-    maxValidBid: 'Price',
-    minValidAsk: 'Price',
+    lowestAsk: 'RpcPrice',
+    maxValidBid: 'RpcPrice',
+    minValidAsk: 'RpcPrice',
     pipDecimals: 'u32',
     quoteCurrency: 'AssetId',
     tickDecimals: 'u32',
     tradable: 'bool'
   },
   Depth: {
-    asks: 'Vec<(Price, Balance)>',
-    bids: 'Vec<(Price, Balance)>'
+    asks: 'Vec<(RpcPrice, RpcBalance)>',
+    bids: 'Vec<(RpcPrice, RpcBalance)>'
   },
   Page: {
     pageIndex: 'u32',
@@ -392,14 +407,5 @@ export default
   RpcMiningWeight: 'String',
   RpcVoteWeight: 'String',
   FullIdentification: 'ValidatorId',
-  WithdrawalRecordOf: 'WithdrawalRecord',
-  RpcWithdrawalRecord: {
-    assetId: 'AssetId',
-    applicant: 'AccountId',
-    balance: 'Balance',
-    addr: 'String',
-    ext: 'String',
-    height: 'BlockNumber',
-    state: 'WithdrawalState'
-  }
+  WithdrawalRecordOf: 'WithdrawalRecord'
 };

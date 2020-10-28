@@ -1,4 +1,5 @@
 // [object Object]
+// eslint-disable-next-line header/header
 export default {
   xassets: {
     getAssetsByAccount: {
@@ -25,7 +26,7 @@ export default {
           isOptional: true
         }
       ],
-      type: 'BTreeMap<AssetId, TotalAssetInfo>'
+      type: 'BTreeMap<AssetId, RpcTotalAssetInfo>'
     }
   },
   xspot: {
