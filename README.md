@@ -103,7 +103,7 @@ async function main () {
   let { data: { free: previousFree }, nonce: previousNonce } = await api.query.system.account(Alice);
 
   console.log(`${Alice} has a balance of ${previousFree}, nonce ${previousNonce}`);
-  console.log(`You may leave this example running and start example 06 or transfer any value to ${Alice}`);
+  console.log(`You may leave this example running and  transfer any value to ${Alice}`);
 
   // Here we subscribe to any balance changes and update the on-screen value
   api.query.system.account(Alice, ({ data: { free: currentFree }, nonce: currentNonce }) => {
@@ -156,6 +156,44 @@ async function main () {
 
 main().catch(console.error);
 
+```
+
+- Unsubscribe from listening to updates
+
+This example shows how to subscribe to and later unsubscribe from listening to block updates.
+
+In this example we're calling the built-in unsubscribe() function after a timeOut of 20s to cleanup and unsubscribe from listening to updates.
+
+```js
+
+const  { ApiPromise } = require('@polkadot/api');
+const { WsProvider } = require('@polkadot/rpc-provider');
+const { options } =  require('@chainx-v2/api');
+
+// Known account we want to use (available on dev chain, with funds)
+const ALICE = '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY';
+const BOB = '5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty';
+
+async function main () {
+
+  // the API has connected to the node and completed the initialisation process
+  const wsProvider = new WsProvider('wss://testnet-1.chainx.org/ws');
+  const api =  await ApiPromise.create(options({ provider: wsProvider }));
+  await api.isReady;
+    // Subscribe to chain updates and log the current block number on update.
+  const unsubscribe = await api.rpc.chain.subscribeNewHeads((header) => {
+    console.log(`Chain is at block: #${header.number}`);
+  });
+
+  // In this example we're calling the unsubscribe() function that is being
+  // returned by the api call function after 20s.
+  setTimeout(() => {
+    unsubscribe();
+    console.log('Unsubscribed');
+  }, 20000);
+}
+
+main().catch(console.error);
 ```
 
 - Use Api To Transfer Balance
