@@ -4,6 +4,9 @@
 
 This library provides additional typing information for user to access ChainX Network by using [polkadot.js](https://github.com/polkadot-js/api).
 
+Wallet: https://dapp-v2.chainx.org
+explorer: https://scan-v2.chainx.org
+
 # Getting Started
 
 - Install dependencies
@@ -34,6 +37,125 @@ async function main() {
 }
 
 main()
+```
+
+- Listen to new blocks
+
+This example shows how to subscribe to new blocks.
+
+It displays the block number every time a new block is seen by the node you are connected to.
+
+```js
+// Import the API
+const  { ApiPromise } = require('@polkadot/api');
+const { WsProvider } = require('@polkadot/rpc-provider');
+const { options } =  require('@chainx-v2/api');
+
+async function main () {
+
+  // the API has connected to the node and completed the initialisation process
+  const wsProvider = new WsProvider('wss://testnet-1.chainx.org/ws');
+  const api =  await ApiPromise.create(options({ provider: wsProvider }));
+  await api.isReady;
+
+  // We only display a couple, then unsubscribe
+  let count = 0;
+
+  // Subscribe to the new headers on-chain. The callback is fired when new headers
+  // are found, the call itself returns a promise with a subscription that can be
+  // used to unsubscribe from the newHead subscription
+  const unsubscribe = await api.rpc.chain.subscribeNewHeads((header) => {
+  console.log(`Chain is at block: #${header.number}`);
+
+    if (++count === 256) {
+      unsubscribe();
+      process.exit(0);
+    }
+  });
+}
+
+main().catch(console.error);
+
+```
+- Listen to balance changes
+
+This example shows how to instantiate a Polkadot and ChainX API object and use it to connect to a node and retrieve balance updates.
+
+```js
+
+// Import the API
+const  { ApiPromise } = require('@polkadot/api');
+const { WsProvider } = require('@polkadot/rpc-provider');
+const { options } =  require('@chainx-v2/api');
+
+// Known account we want to use (available on dev chain, with funds)
+const Alice = '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY';
+
+async function main () {
+
+  // the API has connected to the node and completed the initialisation process
+  const wsProvider = new WsProvider('wss://testnet-1.chainx.org/ws');
+  const api =  await ApiPromise.create(options({ provider: wsProvider }));
+  await api.isReady;
+  
+   // Retrieve the initial balance. Since the call has no callback, it is simply a promise
+  // that resolves to the current on-chain value
+  let { data: { free: previousFree }, nonce: previousNonce } = await api.query.system.account(Alice);
+
+  console.log(`${Alice} has a balance of ${previousFree}, nonce ${previousNonce}`);
+  console.log(`You may leave this example running and start example 06 or transfer any value to ${Alice}`);
+
+  // Here we subscribe to any balance changes and update the on-screen value
+  api.query.system.account(Alice, ({ data: { free: currentFree }, nonce: currentNonce }) => {
+    // Calculate the delta
+    const change = currentFree.sub(previousFree);
+
+    // Only display positive value changes (Since we are pulling `previous` above already,
+    // the initial balance change will also be zero)
+    if (!change.isZero()) {
+      console.log(`New balance change of ${change}, nonce ${currentNonce}`);
+
+      previousFree = currentFree;
+      previousNonce = currentNonce;
+    }
+  });
+}
+
+main().catch(console.error);
+
+```
+
+- Listen to balance changes
+
+This example shows how to instantiate a Polkadot API and ChainX API object and use it to connect to a node and retrieve balance updates.\
+
+```js
+// Import the API
+const  { ApiPromise } = require('@polkadot/api');
+const { WsProvider } = require('@polkadot/rpc-provider');
+const { options } =  require('@chainx-v2/api');
+
+// Known account we want to use (available on dev chain, with funds)
+const ALICE = '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY';
+const BOB = '5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty';
+
+async function main () {
+
+  // the API has connected to the node and completed the initialisation process
+  const wsProvider = new WsProvider('wss://testnet-1.chainx.org/ws');
+  const api =  await ApiPromise.create(options({ provider: wsProvider }));
+  await api.isReady;
+  
+  console.log('Tracking balances for:', [ALICE, BOB]);
+
+  // Subscribe and listen to several balance changes
+  api.query.system.account.multi([ALICE, BOB], (balances) => {
+    console.log('Change detected, new balances: ', balances.map(({ data: { free } }) => free));
+  });
+}
+
+main().catch(console.error);
+
 ```
 
 - Use Api To Transfer Balance
