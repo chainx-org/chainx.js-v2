@@ -196,6 +196,11 @@ async function main () {
 main().catch(console.error);
 ```
 
+- Traverse events
+Query the system events and extract information from them. This example runs until exited via Ctrl-C
+
+
+
 - Use Api To Transfer Balance
 
 ```js
