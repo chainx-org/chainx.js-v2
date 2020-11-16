@@ -20,10 +20,17 @@ const { WsProvider } = require('@polkadot/rpc-provider');
 const { options } =  require('@chainx-v2/api');
 
 async function main() {
-    const wsProvider = new WsProvider('wss://staging-1.chainx.org/ws');
+    const wsProvider = new WsProvider('wss://testnet-1.chainx.org/ws');
     const api =  await ApiPromise.create(options({ provider: wsProvider }));
     await api.isReady;
     // use api
+    const [chain, nodeName, nodeVersion] = await Promise.all([
+        api.rpc.system.chain(),
+        api.rpc.system.name(),
+        api.rpc.system.version()
+      ]);
+    
+    console.log(`You are connected to chain ${chain} using ${nodeName} v${nodeVersion}`);
 }
 
 main()
@@ -36,9 +43,8 @@ const { ApiPromise, WsProvider } = require('@polkadot/api');
 const { PAIRS } = require('@polkadot/keyring/testing');
 const testKeyring = require('@polkadot/keyring/testing').default;
 const { encodeAddress } = require('@polkadot/keyring');
-const { Account } = require('@chainx-v2/account');
 const { options } =require('@chainx-v2/api');
-const url = 'wss://staging-1.chainx.org/ws';
+const url = 'wss://testnet-1.chainx.org/ws';
 const wsProvider = new WsProvider(url);
 const keyring = testKeyring();
 const alice = keyring.pairs[0];
@@ -55,8 +61,7 @@ async function excuteTransfer () {
 
   console.log('balance', balance.data.free.toString());
 
-  const toAddress = Account.generate().address();
-  console.log(toAddress);
+  const toAddress = '5ChcBJcpSPojToxRCNSSYckpLkfPUg42o6wXv6Vo878Z54SR';
 
   const transfer = api.tx.balances.transfer(toAddress, 1000000 * Math.pow(10, 8));
   // Sign and send the transaction using our account
