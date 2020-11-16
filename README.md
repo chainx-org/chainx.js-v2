@@ -242,4 +242,3 @@ async function main () {
 
 - [api](./packages/api)
   - Contains necessary options to create a polkadot.js API instance
-- [api-account](./packages/api-derive)
