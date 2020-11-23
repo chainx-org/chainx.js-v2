@@ -286,6 +286,28 @@ async function main () {
 
 ```
 
+### How can I batch transactions?
+Polkadot/Substrate provides a utility.batch method that can be used to send a number of transactions at once. These are then executed from a single sender (single nonce specified) in sequence. This is very useful in a number of cases, for instance if you wish to create a payout for a validator for multiple eras, you can use this method. Likewise, you can send a number of transfers at once. Or even batch different types of transactions.
+
+```js
+
+// transfer with memo
+const txs = [
+  api.tx.balances.transfer(addrBob, 12345),
+  api.tx.system.remark('test memo')  
+];
+
+// construct the batch and send the transactions
+api.tx.utility
+  .batch(txs)
+  .signAndSend(sender, ({ status }) => {
+    if (status.isInBlock) {
+      console.log(`included in ${status.asInBlock}`);
+    }
+  });
+
+```
+
 # Packages
 
 - [api](./packages/api)
