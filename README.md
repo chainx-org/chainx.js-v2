@@ -6,6 +6,7 @@ This library provides additional typing information for user to access ChainX Ne
 
 - Wallet: https://dapp-v2.chainx.org
 - explorer: https://scan-v2.chainx.org
+- polkadot docx： https://polkadot.js.org/docs/
 
 # Getting Started
 
