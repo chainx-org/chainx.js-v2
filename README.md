@@ -307,6 +307,10 @@ api.tx.utility
   });
 
 ```
+### offline Signature
+
+
+https://github.com/polkadot-js/tools/tree/master/packages/signer-cli
 
 # Packages
 
