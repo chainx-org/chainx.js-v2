@@ -24,7 +24,7 @@ const { WsProvider } = require('@polkadot/rpc-provider');
 const { options } =  require('@chainx-v2/api');
 
 async function main() {
-    const wsProvider = new WsProvider('wss://testnet-1.chainx.org/ws');
+    const wsProvider = new WsProvider('wss://mainnet.chainx.org/ws');
     const api =  await ApiPromise.create(options({ provider: wsProvider }));
     await api.isReady;
     // use api
@@ -55,7 +55,7 @@ const { options } =  require('@chainx-v2/api');
 async function main () {
 
   // the API has connected to the node and completed the initialisation process
-  const wsProvider = new WsProvider('wss://testnet-1.chainx.org/ws');
+  const wsProvider = new WsProvider('wss://mainnet.chainx.org/ws');
   const api =  await ApiPromise.create(options({ provider: wsProvider }));
   await api.isReady;
 
@@ -95,7 +95,7 @@ const Alice = '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY';
 async function main () {
 
   // the API has connected to the node and completed the initialisation process
-  const wsProvider = new WsProvider('wss://testnet-1.chainx.org/ws');
+  const wsProvider = new WsProvider('wss://mainnet.chainx.org/ws');
   const api =  await ApiPromise.create(options({ provider: wsProvider }));
   await api.isReady;
   
@@ -143,7 +143,7 @@ const BOB = '5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty';
 async function main () {
 
   // the API has connected to the node and completed the initialisation process
-  const wsProvider = new WsProvider('wss://testnet-1.chainx.org/ws');
+  const wsProvider = new WsProvider('wss://mainnet.chainx.org/ws');
   const api =  await ApiPromise.create(options({ provider: wsProvider }));
   await api.isReady;
   
@@ -210,7 +210,7 @@ const { options } =  require('@chainx-v2/api');
 
 async function main () {
   // Create our API with a default connection to the local node
-  const wsProvider = new WsProvider('wss://testnet-1.chainx.org/ws');
+  const wsProvider = new WsProvider('wss://mainnet.chainx.org/ws');
   const api =  await ApiPromise.create(options({ provider: wsProvider }));
   await api.isReady;
 
