@@ -1,356 +1,372 @@
 // [object Object]
 // eslint-disable-next-line header/header
 export default {
-  xassets: {
-    getAssetsByAccount: {
-      description: 'Return all assets with AssetTypes for an account (exclude native token(PCX)). The returned map would not contains the assets which is not existed for this account but existed in valid assets list.',
-      params: [
+  "xassets": {
+    "getAssetsByAccount": {
+      "description": "Return all assets with AssetTypes for an account (exclude native token(PCX)). The returned map would not contains the assets which is not existed for this account but existed in valid assets list.",
+      "params": [
         {
-          name: 'who',
-          type: 'AccountId'
+          "name": "who",
+          "type": "AccountId"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'BTreeMap<AssetId, BTreeMap<AssetType, RpcBalance<Balance>>>'
+      "type": "BTreeMap<AssetId, BTreeMap<AssetType, RpcBalance<Balance>>>"
     },
-    getAssets: {
-      description: 'get all assets balance and infos',
-      params: [
+    "getAssets": {
+      "description": "get all assets balance and infos",
+      "params": [
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'BTreeMap<AssetId, RpcTotalAssetInfo>'
+      "type": "BTreeMap<AssetId, RpcTotalAssetInfo>"
     }
   },
-  xspot: {
-    getTradingPairs: {
-      description: 'Get the overall info of all trading pairs.',
-      params: [
+  "xspot": {
+    "getTradingPairs": {
+      "description": "Get the overall info of all trading pairs.",
+      "params": [
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'Vec<FullPairInfo<RpcPrice<Price>, BlockNumber>>'
+      "type": "Vec<FullPairInfo<RpcPrice<Price>, BlockNumber>>"
     },
-    getOrdersByAccount: {
-      description: 'Get the orders of an account.',
-      params: [
+    "getOrdersByAccount": {
+      "description": "Get the orders of an account.",
+      "params": [
         {
-          name: 'who',
-          type: 'AccountId'
+          "name": "who",
+          "type": "AccountId"
         },
         {
-          name: 'page_index',
-          type: 'u32'
+          "name": "page_index",
+          "type": "u32"
         },
         {
-          name: 'page_size',
-          type: 'u32'
+          "name": "page_size",
+          "type": "u32"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'Page<Vec<RpcOrder<TradingPairId, AccountId, RpcBalance<Balance>, RpcPrice<Price>, BlockNumber>>>'
+      "type": "Page<Vec<RpcOrder<TradingPairId,AccountId,RpcBalance<Balance>,RpcPrice<Price>,BlockNumber>>>"
     },
-    getDepth: {
-      description: 'Get the depth of a trading pair.',
-      params: [
+    "getDepth": {
+      "description": "Get the depth of a trading pair.",
+      "params": [
         {
-          name: 'pair_id',
-          type: 'TradingPairId'
+          "name": "pair_id",
+          "type": "TradingPairId"
         },
         {
-          name: 'depth_size',
-          type: 'u32'
+          "name": "depth_size",
+          "type": "u32"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'Option<Depth<RpcPrice<Price>, RpcBalance<Balance>>>'
+      "type": "Option<Depth<RpcPrice<Price>, RpcBalance<Balance>>>"
     }
   },
-  xgatewaycommon: {
-    boundAddrs: {
-      description: 'Get bound addrs for an accountid',
-      params: [
+  "xgatewaycommon": {
+    "boundAddrs": {
+      "description": "Get bound addrs for an accountid",
+      "params": [
         {
-          name: 'who',
-          type: 'AccountId'
+          "name": "who",
+          "type": "AccountId"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'BTreeMap<Chain, Vec<String>>'
+      "type": "BTreeMap<Chain, Vec<String>>"
     },
-    withdrawalLimit: {
-      description: 'Get withdrawal limit(minimal_withdrawal&fee) for an AssetId',
-      params: [
+    "withdrawalLimit": {
+      "description": "Get withdrawal limit(minimal_withdrawal&fee) for an AssetId",
+      "params": [
         {
-          name: 'asset_id',
-          type: 'AssetId'
+          "name": "asset_id",
+          "type": "AssetId"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'WithdrawalLimit<RpcBalance<Balance>>'
+      "type": "WithdrawalLimit<RpcBalance<Balance>>"
     },
-    verifyWithdrawal: {
-      description: 'Use the params to verify whether the withdrawal apply is valid. Notice those params is same as the params for call `XGatewayCommon::withdraw(...)`, including checking address is valid or something else. Front-end should use this rpc to check params first, than could create the extrinsic.',
-      params: [
+    "verifyWithdrawal": {
+      "description": "Use the params to verify whether the withdrawal apply is valid. Notice those params is same as the params for call `XGatewayCommon::withdraw(...)`, including checking address is valid or something else. Front-end should use this rpc to check params first, than could create the extrinsic.",
+      "params": [
         {
-          name: 'asset_id',
-          type: 'AssetId'
+          "name": "asset_id",
+          "type": "AssetId"
         },
         {
-          name: 'value',
-          type: 'u64'
+          "name": "value",
+          "type": "u64"
         },
         {
-          name: 'addr',
-          type: 'String'
+          "name": "addr",
+          "type": "String"
         },
         {
-          name: 'memo',
-          type: 'String'
+          "name": "memo",
+          "type": "String"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: '()'
+      "type": "bool"
     },
-    trusteeMultisigs: {
-      description: 'Return the trustee multisig address for all chain.',
-      params: [
+    "trusteeMultisigs": {
+      "description": "Return the trustee multisig address for all chain.",
+      "params": [
         {
-          name: 'at',
-          type: 'Option<BlockHash>)'
+          "name": "at",
+          "type": "Option<BlockHash>)"
         }
       ],
-      type: 'BTreeMap<Chain, AccountId>'
+      "type": "BTreeMap<Chain, AccountId>"
     },
-    bitcoinTrusteeProperties: {
-      description: 'Return bitcoin trustee registered property info for an account(e.g. registered hot/cold address)',
-      params: [
+    "bitcoinTrusteeProperties": {
+      "description": "Return bitcoin trustee registered property info for an account(e.g. registered hot/cold address)",
+      "params": [
         {
-          name: 'who',
-          type: 'AccountId'
+          "name": "who",
+          "type": "AccountId"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'BtcTrusteeIntentionProps'
+      "type": "BtcTrusteeIntentionProps"
     },
-    bitcoinTrusteeSessionInfo: {
-      description: 'Return bitcoin trustee for current session(e.g. trustee hot/cold address and else)',
-      params: [
+    "bitcoinTrusteeSessionInfo": {
+      "description": "Return bitcoin trustee for current session(e.g. trustee hot/cold address and else)",
+      "params": [
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'BtcTrusteeSessionInfo<AccountId>'
+      "type": "BtcTrusteeSessionInfo<AccountId>"
     },
-    bitcoinGenerateTrusteeSessionInfo: {
-      description: 'Try to generate bitcoin trustee info for a list of candidates. (this api is used to check the trustee info which would be generated by those candidates)',
-      params: [
+    "bitcoinGenerateTrusteeSessionInfo": {
+      "description": "Try to generate bitcoin trustee info for a list of candidates. (this api is used to check the trustee info which would be generated by those candidates)",
+      "params": [
         {
-          name: 'candidates',
-          type: 'Vec<AccountId>'
+          "name": "candidates",
+          "type": "Vec<AccountId>"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'BtcTrusteeSessionInfo<AccountId>'
+      "type": "BtcTrusteeSessionInfo<AccountId>"
     }
   },
-  xgatewayrecords: {
-    withdrawalList: {
-      description: 'Return current withdraw list(include Applying and Processing withdraw state)',
-      params: [
+  "xgatewayrecords": {
+    "withdrawalList": {
+      "description": "Return current withdraw list(include Applying and Processing withdraw state)",
+      "params": [
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'BTreeMap<WithdrawalRecordId, RpcWithdrawalRecord<AccountId, Balance, BlockNumber>>'
+      "type": "BTreeMap<WithdrawalRecordId, RpcWithdrawalRecord<AccountId, Balance, BlockNumber>>"
     },
-    withdrawalListByChain: {
-      description: 'Return current withdraw list for a chain(include Applying and Processing withdraw state)',
-      params: [
+    "withdrawalListByChain": {
+      "description": "Return current withdraw list for a chain(include Applying and Processing withdraw state)",
+      "params": [
         {
-          name: 'chain',
-          type: 'Chain'
+          "name": "chain",
+          "type": "Chain"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'BTreeMap<WithdrawalRecordId, RpcWithdrawalRecord<AccountId, Balance, BlockNumber>>'
+      "type": "BTreeMap<WithdrawalRecordId, RpcWithdrawalRecord<AccountId, Balance, BlockNumber>>"
     },
-    pendingWithdrawalList: {
-      description: 'Return current pending withdraw list for a chain',
-      params: [
+    "pendingWithdrawalListByChain": {
+      "description": "Return current pending withdraw list for a chain",
+      "params": [
         {
-          name: 'chain',
-          type: 'Chain'
+          "name": "chain",
+          "type": "Chain"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'BTreeMap<WithdrawalRecordId, RpcWithdrawalRecord<AccountId, Balance, BlockNumber>>'
+      "type": "BTreeMap<WithdrawalRecordId, RpcWithdrawalRecord<AccountId, Balance, BlockNumber>>"
     }
   },
-  xminingasset: {
-    getMiningAssets: {
-      description: 'Get overall information about all mining assets.',
-      params: [
+  "xminingasset": {
+    "getMiningAssets": {
+      "description": "Get overall information about all mining assets.",
+      "params": [
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'Vec<MiningAssetInfo<AccountId, RpcBalance<Balance>, RpcMiningWeight<MiningWeight>, BlockNumber>>'
+      "type": "Vec<MiningAssetInfo<AccountId,RpcBalance<Balance>,RpcMiningWeight<MiningWeight>,BlockNumber>>"
     },
-    getDividendByAccount: {
-      description: 'Get the asset mining dividends info given the asset miner AccountId.',
-      params: [
+    "getDividendByAccount": {
+      "description": "Get the asset mining dividends info given the asset miner AccountId.",
+      "params": [
         {
-          name: 'who',
-          type: 'AccountId'
+          "name": "who",
+          "type": "AccountId"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'BTreeMap<AssetId, RpcBalance<Balance>>'
+      "type": "BTreeMap<AssetId, RpcMiningDividendInfo>"
     },
-    getMinerLedgerByAccount: {
-      description: 'Get the mining ledger details given the asset miner AccountId.',
-      params: [
+    "getMinerLedgerByAccount": {
+      "description": "Get the mining ledger details given the asset miner AccountId.",
+      "params": [
         {
-          name: 'who',
-          type: 'AccountId'
+          "name": "who",
+          "type": "AccountId"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'BTreeMap<AssetId, MinerLedger<RpcMiningWeight<MiningWeight>, BlockNumber>>'
+      "type": "BTreeMap<AssetId, MinerLedger<RpcMiningWeight<MiningWeight>, BlockNumber>>"
     }
   },
-  xstaking: {
-    getValidators: {
-      description: 'Get overall information about all potential validators',
-      params: [
+  "xstaking": {
+    "getValidators": {
+      "description": "Get overall information about all potential validators",
+      "params": [
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'Vec<ValidatorInfo<AccountId, RpcBalance<Balance>, RpcVoteWeight<VoteWeight>, BlockNumber>>'
+      "type": "Vec<ValidatorInfo<AccountId, RpcBalance<Balance>, RpcVoteWeight<VoteWeight>, BlockNumber>>"
     },
-    getValidatorByAccount: {
-      description: 'Get overall information given the validator AccountId.',
-      params: [
+    "getValidatorByAccount": {
+      "description": "Get overall information given the validator AccountId.",
+      "params": [
         {
-          name: 'who',
-          type: 'AccountId'
+          "name": "who",
+          "type": "AccountId"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'ValidatorInfo<AccountId, RpcBalance<Balance>, RpcVoteWeight<VoteWeight>, BlockNumber>'
+      "type": "ValidatorInfo<AccountId, RpcBalance<Balance>, RpcVoteWeight<VoteWeight>, BlockNumber>"
     },
-    getDividendByAccount: {
-      description: 'Get the staking dividends info given the staker AccountId.',
-      params: [
+    "getDividendByAccount": {
+      "description": "Get the staking dividends info given the staker AccountId.",
+      "params": [
         {
-          name: 'who',
-          type: 'AccountId'
+          "name": "who",
+          "type": "AccountId"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'BTreeMap<AccountId, RpcBalance<Balance>>'
+      "type": "BTreeMap<AccountId, RpcBalance<Balance>>"
     },
-    getNominationByAccount: {
-      description: 'Get the nomination details given the staker AccountId.',
-      params: [
+    "getNominationByAccount": {
+      "description": "Get the nomination details given the staker AccountId.",
+      "params": [
         {
-          name: 'who',
-          type: 'AccountId'
+          "name": "who",
+          "type": "AccountId"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'BTreeMap<AccountId, NominatorLedger<RpcBalance<Balance>, RpcVoteWeight<VoteWeight>, BlockNumber>>'
+      "type": "BTreeMap<AccountId,NominatorLedger<RpcBalance<Balance>, RpcVoteWeight<VoteWeight>, BlockNumber>>"
     },
-    getNominatorByAccount: {
-      description: 'Get individual nominator information given the nominator AccountId.',
-      params: [
+    "getNominatorByAccount": {
+      "description": "Get individual nominator information given the nominator AccountId.",
+      "params": [
         {
-          name: 'who',
-          type: 'AccountId'
+          "name": "who",
+          "type": "AccountId"
         },
         {
-          name: 'at',
-          type: 'Hash',
-          isOptional: true
+          "name": "at",
+          "type": "Hash",
+          "isOptional": true
         }
       ],
-      type: 'NominatorInfo<BlockNumber>'
+      "type": "NominatorInfo<BlockNumber>"
+    }
+  },
+  "xfee": {
+    "queryDetails": {
+      "description": "get the fee details of extrinsic",
+      "params": [
+        {
+          "name": "encoded_xt",
+          "type": "Bytes"
+        },
+        {
+          "name": "at",
+          "type": "Option<BlockHash>"
+        }
+      ],
+      "type": "RpcFeeDetails"
     }
   }
-};
+}
