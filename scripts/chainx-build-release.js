@@ -105,7 +105,7 @@ function npmPublish () {
 
   while (true) {
     try {
-      execSync(`npm publish --access public 0.0.47`);
+      execSync(`npm publish --access public ${tag}`);
 
       break;
     } catch (error) {
@@ -165,8 +165,6 @@ function gitPush () {
 
   // add the skip checks for GitHub ...
   execSync(`git commit --no-status --quiet -m "[CI Skip] release/${version.includes('-beta.') ? 'beta' : 'stable'} ${version}
-
-
 skip-checks: true"`);
 
   execSync('git push --repo=git@github.com:chainx-org/chainx.js-v2.git origin master', true);
