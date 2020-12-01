@@ -292,20 +292,39 @@ Polkadot/Substrate provides a utility.batch method that can be used to send a nu
 
 ```js
 
-// transfer with memo
-const txs = [
-  api.tx.balances.transfer(addrBob, 12345),
-  api.tx.system.remark('test memo')  
-];
+// Import the API
+const  { ApiPromise } = require('@polkadot/api');
+const { WsProvider } = require('@polkadot/rpc-provider');
+const { options } =  require('@chainx-v2/api');
 
-// construct the batch and send the transactions
-api.tx.utility
+async function main () {
+  // Create our API with a default connection to the local node
+  const wsProvider = new WsProvider('wss://mainnet.chainx.org/ws');
+  const api =  await ApiPromise.create(options({ provider: wsProvider }));
+  await api.isReady;
+
+  // Subscribe to system events via storage
+  // transfer with memo
+  const txs = [
+    api.tx.balances.transfer(addrBob, 12345),
+    api.tx.system.remark('test memo')  
+  ];
+
+ // construct the batch and send the transactions
+ api.tx.utility
   .batch(txs)
   .signAndSend(sender, ({ status }) => {
     if (status.isInBlock) {
       console.log(`included in ${status.asInBlock}`);
     }
   });
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exit(-1);
+});
+
 
 ```
 ### offline Signature
