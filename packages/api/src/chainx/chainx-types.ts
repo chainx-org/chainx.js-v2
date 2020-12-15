@@ -355,7 +355,7 @@ export default {
     "restrictions": "AssetRestrictions"
   },
   "RpcOrder": {
-    "orderId": "OrderId",
+    "id": "OrderId",
     "side": "Side",
     "price": "RpcPrice",
     "amount": "RpcBalance",
