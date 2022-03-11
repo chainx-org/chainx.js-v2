@@ -299,7 +299,7 @@ const { options } =  require('@chainx-v2/api');
 
 async function main () {
   // Create our API with a default connection to the local node
-  const wsProvider = new WsProvider('wss://mainnet.spiderx.pro/ws');
+  const wsProvider = new WsProvider('wss://mainnet.chainx.org/ws');
   const api =  await ApiPromise.create(options({ provider: wsProvider }));
   await api.isReady;
 
