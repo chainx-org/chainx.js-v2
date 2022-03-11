@@ -4,8 +4,8 @@
 
 This library provides additional typing information for user to access ChainX Network by using [polkadot.js](https://github.com/polkadot-js/api).
 
-- Wallet: https://dapp-v2.chainx.org
-- explorer: https://scan-v2.chainx.org
+- Wallet: https://dapps.chainx.org
+- explorer: https://scan.chainx.org
 - polkadot docx： https://polkadot.js.org/docs/
 
 # Getting Started
